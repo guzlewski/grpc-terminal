@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package GrpcTerminal;
+
+service Terminal {
+  rpc Execute (Request) returns (Response);
+}
+
+message Request {
+  string name = 1;
+  repeated string args = 2;
+  string stdin = 3;
+}
+
+message Response {
+  int32 code = 1;
+  string stdout = 2;
+  string stderr = 3;
+}
