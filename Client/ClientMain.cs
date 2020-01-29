@@ -30,9 +30,9 @@ namespace TerminalClient
             }
 
             Console.WriteLine("Invalid arguments.");
-            Console.WriteLine($"Usage: {AppDomain.CurrentDomain.FriendlyName} HOST PORT PROGRAM_NAME [-i] [ARG1] ...");
+            Console.WriteLine($"Usage: {AppDomain.CurrentDomain.FriendlyName} HOST PORT PROGRAM_NAME [--i] [ARG1] ...");
             Console.WriteLine($"Arguments are optional.");
-            Console.WriteLine($"Flag -i to input data to stdin, ends with EOF.");
+            Console.WriteLine($"Flag --i to input data to stdin, end with EOF.");
 
             Environment.Exit(0);
             return (null, -1, null);
@@ -50,7 +50,7 @@ namespace TerminalClient
 
             for (int i = 3; i < args.Length; i++)
             {
-                if (args[i] != "-i")
+                if (args[i] != "--i")
                 {
                     request.Args.Add(args[i]);
                 }
